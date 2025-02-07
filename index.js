@@ -60,10 +60,31 @@ async function displayProfile(ctx, user) {
     .replace("{{phone}}", user.phone || t.notload)
     .replace("{{email}}", user.email || t.notload);
 
-  if (user.photo) {
-    ctx.replyWithPhoto({ url: user.photo }, { caption: profileText });
-  } else {
-    ctx.reply(profileText);
+  try {
+    if (user.photo) {
+      await ctx.replyWithPhoto({ url: user.photo }, { caption: profileText });
+    } else {
+      ctx.reply(profileText);
+    }
+  } catch (error) {
+    if (
+      error.response &&
+      error.response.description === "Bad Request: IMAGE_PROCESS_FAILED"
+    ) {
+      console.log("Bad Request, alternative photo will be sent:");
+      const nouserPath = path.join(__dirname, "nouser.png");
+
+      if (fs.existsSync(nouserPath)) {
+        const stream = fs.createReadStream(nouserPath);
+        await ctx.replyWithPhoto({ source: stream }, { caption: profileText });
+      } else {
+        console.error("Alternative photo not found:", nouserPath);
+        ctx.reply(profileText);
+      }
+    } else {
+      console.error("Error sending photo:", error);
+      ctx.reply(profileText);
+    }
   }
 }
 
