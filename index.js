@@ -8,6 +8,8 @@ const app = express();
 const bot = new Telegraf(process.env.BOT_TOKEN);
 const { getUpdatedPhotoUrl } = require("./photoUtils");
 const { sendMail } = require("./sendEmails");
+const path = require("path");
+const fs = require("fs");
 
 bot.use(session());
 
