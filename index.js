@@ -874,7 +874,7 @@ process.once("SIGINT", () => bot.stop("SIGINT"));
 process.once("SIGTERM", () => bot.stop("SIGTERM"));
 
 app.get("/", (req, res) => {
-  console.log("Mmm... I’m Mr. Frundles");
+  console.log("Request received!");
   res.send("Bot is running!");
 });
 
