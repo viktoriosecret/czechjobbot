@@ -808,7 +808,7 @@ bot.action("editRegion", async (ctx) => {
   if (user) {
     const t = locales[user.language];
     const keyboard = region.map((v) => [
-      { text: v, callback_data: `setregion-${v}` },
+      { text: v, callback_data: `setRegion-${v}` },
     ]);
     ctx.reply(t.regionQuestion, {
       reply_markup: { inline_keyboard: keyboard },
@@ -818,20 +818,20 @@ bot.action("editRegion", async (ctx) => {
 });
 
 bot.action(
-  region.map((v) => `setregion-${v}`),
+  region.map((v) => `setRegion-${v}`),
   async (ctx) => {
     const user = await User.findOne({ telegramId: ctx.from.id });
     const t = locales[user.language];
     if (user && ctx.session.editField === "region") {
-      const newregion = ctx.match[0].replace("setregion-", "");
-      console.log("Attempting to save region:", newregion);
-      const saved = await saveUserData(user, "region", newregion);
+      const newRegion = ctx.match[0].replace("setRegion-", "");
+      console.log("Attempting to save region:", newRegion);
+      const saved = await saveUserData(user, "region", newRegion);
       if (saved) {
-        ctx.reply(t.regionUpdated.replace("{{region}}", newregion));
+        ctx.reply(t.regionUpdated.replace("{{region}}", newRegion));
         ctx.session.editField = null;
         await displayProfile(ctx, user);
       } else {
-        ctx.reply(t.errorUpdatingregion);
+        ctx.reply(t.errorUpdatingRegion);
       }
     }
   }
