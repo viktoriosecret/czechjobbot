@@ -181,7 +181,7 @@ function displayBookmark(ctx, user) {
     const job = ctx.session.jobs[ctx.session.currentJobIndex];
     let jobText = `*${escapeMarkdownV2(job.name)}*\n\n${escapeMarkdownV2(
       job.description
-    )}\n\n${t.salary}: ${escapeMarkdownV2(job.salary.toString())}\n${
+    )}\n\n${t.salary}: ${escapeMarkdownV2(job.salary.toString())} Kč\n${
       t.city
     }: ${escapeMarkdownV2(job.city)}\n${t.region}: ${escapeMarkdownV2(
       job.region
@@ -223,7 +223,7 @@ function displayJob(ctx, user) {
     if (!user.interested.includes(jobId) && !user.declined.includes(jobId)) {
       let jobText = `*${escapeMarkdownV2(job.name)}*\n\n${escapeMarkdownV2(
         job.description
-      )}\n\n${t.salary}: ${escapeMarkdownV2(job.salary.toString())}\n${
+      )}\n\n${t.salary}: ${escapeMarkdownV2(job.salary.toString())} Kč\n${
         t.city
       }: ${escapeMarkdownV2(job.city)}\n${t.region}: ${escapeMarkdownV2(
         job.region
