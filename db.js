@@ -70,6 +70,7 @@ const jobSchema = new mongoose.Schema({
   responsibilities: [String],
   bonuses: [String],
   views: [{ type: Number, ref: "User" }],
+  createdAt: { type: Date, default: Date.now },
 });
 
 const User = mongoose.model("User", userSchema);
