@@ -12,7 +12,7 @@ module.exports = {
       "Zadejte svou e-mailovou adresu (pokud nemáte, napište 'neni'):",
     phoneQuestion: "Zadejte své telefonní číslo (xxxxxxxxx):",
     photoQuestion:
-      "Pošlete svou fotografii (bez toho nebude dotazník odeslán):",
+      "Pošlete svou fotografii (můžete nahrát jakoukoli fotografii):",
     profileDisplay:
       "Váš dotazník:\n\nFotografie:\n{{photo}}\nJméno a příjmení: {{fullName}}\nVěk: {{age}}\nPohlaví: {{gender}}\nMěsto: {{city}}\nKraj: {{region}}\nTelefon: {{phone}}\nE-mail: {{email}}\nProfese: {{professions}}\nOčekávaný plat: {{salary}} Kč\n\nChcete-li změnit/odstranit profil nebo přejít k prohlížení nabídek práce a záložek – stiskněte tlačítko menu.\n👇👇👇",
     editProfile: "Co chcete změnit?",
@@ -73,8 +73,7 @@ module.exports = {
     emailQuestion:
       "Введіть свою електронну пошту (якщо немає, напишіть 'neni'):",
     phoneQuestion: "Введіть свій номер телефону (xxxxxxxxx):",
-    photoQuestion:
-      "Надішліть своє фото (без цього анкета не буде відображатися):",
+    photoQuestion: "Надішліть своє фото (можете завантажити будь яке фото):",
     profileDisplay:
       "Ваш профіль:\n\nФотографія:\n{{photo}}\nІм'я та прізвище: {{fullName}}\nВік: {{age}}\nСтать: {{gender}}\nМісто: {{city}}\nКрай: {{region}}\nТелефон: {{phone}}\nЕлектронна пошта: {{email}}\nПрофесії: {{professions}}\nОчікувана зарплата: {{salary}} Kč\n\nЩоб змінити/видалити профіль або перейти до перегляду вакансій і ваших закладок - натисніть на кнопку меню.\n👇👇👇",
     editProfile: "Що ви хочете змінити?",
